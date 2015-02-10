@@ -38,6 +38,18 @@ if bot.nil? or princess.nil?
 end
 
 # Step 1: render Y.
+if bot[0] > princess[0]
+    # Move up.
+    (princess[0]...bot[0]).each do |index|
+        grid[index][bot[1]] = "#" unless ["b", "p"].include? grid[index][bot[1]]
+    end
+else
+    # Move down.
+    (bot[0]...princess[0]).each do |index|
+        grid[index][princess[1]] = "#" unless ["b", "p"].include? grid[index][princess[1]]
+    end
+end
+
 # Step 2: render X.
 
 puts "Output:"
