@@ -37,3 +37,25 @@ if bot.nil? or princess.nil?
 end
 
 #puts grid.inspect, bot.inspect, princess.inspect
+#moves = Array.new
+x_diff, y_diff = (bot[0] - princess[0]).abs, (bot[1] - princess[1]).abs
+
+#puts x_diff.inspect, y_diff.inspect
+
+if y_diff != 0
+    (y_diff - 1).times.each do |row_index|
+        grid[row_index + 1][bot[1]] = "#"
+    end
+end
+
+if x_diff != 0
+    x_diff.times.each do |cell_index|
+        grid[princess[0]][cell_index] = "#"
+    end
+end
+
+#puts grid.inspect
+
+grid.each do |row|
+    puts row.join ""
+end
