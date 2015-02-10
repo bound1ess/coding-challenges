@@ -46,18 +46,18 @@ if bot[0] > princess[0]
 else
     # Move down.
     (bot[0]...princess[0]).each do |index|
-        grid[index][princess[1]] = "#" unless ["b", "p"].include? grid[index][princess[1]]
+        grid[index][bot[1]] = "#" unless ["b", "p"].include? grid[index][bot[1]]
     end
 end
 
 # Step 2: render X.
 if bot[1] > princess[1]
-    (princess[1]...bot[1]).each do |index|
+    (princess[1]..bot[1]).each do |index|
         grid[princess[0]][index] = "#" unless ["b", "p"].include? grid[princess[0]][index]
     end
 else
-    (bot[1]...princess[1]).each do |index|
-        grid[bot[0]][index] = "#" unless ["b", "p"].include? grid[bot[0]][index]
+    (bot[1]..princess[1]).each do |index|
+        grid[princess[0]][index] = "#" unless ["b", "p"].include? grid[princess[0]][index]
     end
 end
 
