@@ -9,7 +9,7 @@ I/O:
 | Input | Output |
 --------|---------
 | 3 | |
-| #thisisinsane | this is insane |
+| #isittime | is it time |
 | www.whatismyname.com | what is my name |
 | #letusgo | let us go |
 
