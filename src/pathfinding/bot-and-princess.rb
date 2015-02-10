@@ -40,7 +40,11 @@ end
 #moves = Array.new
 x_diff, y_diff = (bot[0] - princess[0]).abs, (bot[1] - princess[1]).abs
 
-#puts x_diff.inspect, y_diff.inspect
+if x_diff > 0
+    x_diff -= 1
+end
+
+puts "UP/DOWN: #{y_diff}, LEFT/RIGHT: #{x_diff}"
 
 if y_diff != 0
     (y_diff - 1).times.each do |row_index|
@@ -49,8 +53,8 @@ if y_diff != 0
 end
 
 if x_diff != 0
-    x_diff.times.each do |cell_index|
-        grid[princess[0]][cell_index] = "#"
+    (x_diff - 1).times.each do |cell_index|
+        grid[princess[0]][cell_index + 1] = "#"
     end
 end
 
