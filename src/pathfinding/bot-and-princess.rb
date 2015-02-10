@@ -51,6 +51,15 @@ else
 end
 
 # Step 2: render X.
+if bot[1] > princess[1]
+    (princess[1]...bot[1]).each do |index|
+        grid[princess[0]][index] = "#" unless ["b", "p"].include? grid[princess[0]][index]
+    end
+else
+    (bot[1]...princess[1]).each do |index|
+        grid[bot[0]][index] = "#" unless ["b", "p"].include? grid[bot[0]][index]
+    end
+end
 
 puts "Output:"
 
