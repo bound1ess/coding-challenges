@@ -3,6 +3,7 @@ def inapplicable
     exit
 end
 
+puts "Input:"
 grid_size = gets.to_i
 
 if grid_size < 3 or grid_size.even?
@@ -36,26 +37,10 @@ if bot.nil? or princess.nil?
     inapplicable
 end
 
-#puts grid.inspect, bot.inspect, princess.inspect
-#moves = Array.new
-y_diff, x_diff = princess[0] - bot[0], princess[1] - bot[1] - 1
+# Step 1: render Y.
+# Step 2: render X.
 
-#puts "Y: #{y_diff}, X: #{x_diff}"
-#exit
-
-y_diff.abs.times.each do |index|
-    index += bot[0] + 1
-    grid[index][bot[1]] = "#"
-end
-
-go_right = x_diff > 0
-
-x_diff.abs.times.each do |index|
-    index += bot[0] + (go_right ? 1 : -1)
-    grid[princess[0]][index] = "#" unless grid[princess[0]][index] == "p"
-end
-
-#puts grid.inspect
+puts "Output:"
 
 grid.each do |row|
     puts row.join ""
