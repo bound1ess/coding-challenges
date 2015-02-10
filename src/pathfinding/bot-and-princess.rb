@@ -1,13 +1,17 @@
-def inapplicable
+def inapplicable!
     puts "Inapplicable"
     exit
+end
+
+def is_bot_or_princess? cell
+    ["b", "p"].include? cell
 end
 
 puts "Input:"
 grid_size = gets.to_i
 
 if grid_size < 3 or grid_size.even?
-    inapplicable
+    inapplicable!
 end
 
 grid = Array.new
@@ -17,7 +21,7 @@ grid_size.times.each do |row_index|
     row = gets.strip.split ""
 
     if row.length != grid_size
-        inapplicable
+        inapplicable!
     end
 
     if row.include? "b" or row.include? "p"
@@ -34,30 +38,30 @@ grid_size.times.each do |row_index|
 end
 
 if bot.nil? or princess.nil?
-    inapplicable
+    inapplicable!
 end
 
 # Step 1: render Y.
 if bot[0] > princess[0]
     # Move up.
     (princess[0]...bot[0]).each do |index|
-        grid[index][bot[1]] = "#" unless ["b", "p"].include? grid[index][bot[1]]
+        grid[index][bot[1]] = "#" unless is_bot_or_princess? grid[index][bot[1]]
     end
 else
     # Move down.
     (bot[0]...princess[0]).each do |index|
-        grid[index][bot[1]] = "#" unless ["b", "p"].include? grid[index][bot[1]]
+        grid[index][bot[1]] = "#" unless is_bot_or_princess? grid[index][bot[1]]
     end
 end
 
 # Step 2: render X.
 if bot[1] > princess[1]
     (princess[1]..bot[1]).each do |index|
-        grid[princess[0]][index] = "#" unless ["b", "p"].include? grid[princess[0]][index]
+        grid[princess[0]][index] = "#" unless is_bot_or_princess? grid[princess[0]][index]
     end
 else
     (bot[1]..princess[1]).each do |index|
-        grid[princess[0]][index] = "#" unless ["b", "p"].include? grid[princess[0]][index]
+        grid[princess[0]][index] = "#" unless is_bot_or_princess? grid[princess[0]][index]
     end
 end
 
