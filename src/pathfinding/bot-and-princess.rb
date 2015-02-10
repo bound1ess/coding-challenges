@@ -38,24 +38,21 @@ end
 
 #puts grid.inspect, bot.inspect, princess.inspect
 #moves = Array.new
-x_diff, y_diff = (bot[0] - princess[0]).abs, (bot[1] - princess[1]).abs
+y_diff, x_diff = princess[0] - bot[0], princess[1] - bot[1] - 1
 
-if x_diff > 0
-    x_diff -= 1
+#puts "Y: #{y_diff}, X: #{x_diff}"
+#exit
+
+y_diff.abs.times.each do |index|
+    index += bot[0] + 1
+    grid[index][bot[1]] = "#"
 end
 
-puts "UP/DOWN: #{y_diff}, LEFT/RIGHT: #{x_diff}"
+go_right = x_diff > 0
 
-if y_diff != 0
-    (y_diff - 1).times.each do |row_index|
-        grid[row_index + 1][bot[1]] = "#"
-    end
-end
-
-if x_diff != 0
-    (x_diff - 1).times.each do |cell_index|
-        grid[princess[0]][cell_index + 1] = "#"
-    end
+x_diff.abs.times.each do |index|
+    index += bot[0] + (go_right ? 1 : -1)
+    grid[princess[0]][index] = "#" unless grid[princess[0]][index] == "p"
 end
 
 #puts grid.inspect
