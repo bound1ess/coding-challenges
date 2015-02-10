@@ -1,5 +1,18 @@
 # Coding challenges
 
+## Hashtag/URL segmentation
+
+Original idea: [HackerRank](https://www.hackerrank.com/challenges/url-hashtag-segmentation).
+
+I/O:
+
+| Input | Output |
+--------|---------
+| 3 | |
+| #thisisinsane | this is insane |
+| www.whatismyname.com | what is my name |
+| #letusgo | let us go |
+
 ## Pathfinding
 
 Original idea: [HackerRank](https://www.hackerrank.com/challenges/saveprincess).
