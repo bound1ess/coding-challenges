@@ -6,18 +6,20 @@ class Node
     end
 
     def has_loop?
+        # Using Floyd's algorithm
+
         slow = fast = self
 
         while true
-            slow = slow.next
+            slow = slow.next # only 1 hop
 
             if fast.next.nil?
-                return false
+                return false # Meaning we can't do "fast.next.next"
             else
-                fast = fast.next.next
+                fast = fast.next.next # 2 hops
             end
 
-            if slow.nil? or fast.nil?
+            if slow.nil? or fast.nil? # Meaning "fast.next" or "slow.next" is not possible
                 return false
             end
 
