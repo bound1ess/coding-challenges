@@ -5,6 +5,11 @@ int** create_grid(int height, int width);
 void print_grid(int** grid, int height, int width);
 void print_in_spiral_order(int** grid, int height, int width);
 
+int const TOP    = 0;
+int const RIGHT  = 1;
+int const BOTTOM = 2;
+int const LEFT   = 3;
+
 int main(void)
 {
     int height, width;
@@ -46,4 +51,52 @@ void print_grid(int** grid, int height, int width)
 
 void print_in_spiral_order(int** grid, int heigth, int width)
 {
+    int direction = 0, top = 0, right, bottom, left = 0;
+
+    right  = width - 1;
+    bottom = heigth - 1;
+
+    while (left <= right && top <= bottom) {
+        if (direction == TOP) {
+            for (int i = left; i <= right; i++) {
+                std::cout << grid[top][i] << " ";
+            }
+
+            direction = RIGHT;
+            top++;
+
+            continue;
+        }
+
+        if (direction == RIGHT) {
+            for (int i = top; i <= bottom; i++) {
+                std::cout << grid[i][right] << " ";
+            }
+
+            direction = BOTTOM;
+            right--;
+
+            continue;
+        }
+
+        if (direction == BOTTOM) {
+            for (int i = right; left <= i; i--) {
+                std::cout << grid[bottom][i] << " ";
+            }
+
+            direction = LEFT;
+            bottom--;
+
+            continue;
+        }
+
+        for (int i = bottom; top <= i; i--) {
+            std::cout << grid[i][left] << " ";
+        }
+
+        left++;
+        direction = TOP;
+    }
+
+    std::cout << std::endl;
 }
