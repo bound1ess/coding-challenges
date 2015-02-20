@@ -12,12 +12,16 @@ int const LEFT   = 3;
 
 int main(void)
 {
+    std::cout << "Please enter two integers:" << std::endl;
     int height, width;
     std::cin >> height >> width;
 
     int** grid = create_grid(height, width);
 
+    std::cout << "Printing grid..." << std::endl;
     print_grid(grid, height, width);
+
+    std::cout << "Printing in spiral order..." << std::endl;
     print_in_spiral_order(grid, height, width);
 
     return 0;
