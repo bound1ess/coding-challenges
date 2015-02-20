@@ -1,5 +1,9 @@
 # Coding challenges
 
+## Printing a 2D array in spiral order (spiral order traversal)
+
+Source code (`C++`): `src/spiral-order/main.cpp`.
+
 ## Hashtag/URL segmentation
 
 Original idea: [HackerRank](https://www.hackerrank.com/challenges/url-hashtag-segmentation).
