@@ -1,5 +1,9 @@
 # Coding challenges
 
+## Finding loops in a linked list
+
+Source code (`Ruby`): `src/linked-list/node.rb`.
+
 ## Printing a 2D array in spiral order (spiral order traversal)
 
 Source code (`C++`): `src/spiral-order/main.cpp`.
