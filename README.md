@@ -2,3 +2,4 @@
 
 1. Identify Smith Numbers (easy, warmup)
 2. Taum and B'day (easy, warmup)
+3. Chocolate Feast (easy, warmup)
