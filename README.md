@@ -6,3 +6,4 @@
 4. Find the Median (easy, sorting)
 5. Anagram (easy, strings)
 6. Palindrome Index (easy, strings)
+7. Alternating Characters (easy, strings)
