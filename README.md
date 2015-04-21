@@ -4,3 +4,4 @@
 2. Taum and B'day (easy, warmup)
 3. Chocolate Feast (easy, warmup)
 4. Find the Median (easy, sorting)
+5. Anagram (easy, strings)
