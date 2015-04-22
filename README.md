@@ -9,3 +9,4 @@
 7. Alternating Characters (easy, strings)
 8. Grid Challenge (easy, greedy)
 9. Game of Thrones - I (easy, strings)
+10. Gemstones (easy, strings)
