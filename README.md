@@ -11,3 +11,4 @@
 9. Game of Thrones - I (easy, strings)
 10. Gemstones (easy, strings)
 11. Jim and the Orders (easy, greedy)
+12. Sherlock and Array (easy, search)
