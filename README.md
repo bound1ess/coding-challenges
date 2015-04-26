@@ -16,3 +16,4 @@
 14. Two arrays (easy, greedy)
 15. Priyanka and Toys (easy, greedy)
 16. Largest Permutation (easy, greedy)
+17. Handshake (easy, combinatorics)
