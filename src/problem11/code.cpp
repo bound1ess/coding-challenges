@@ -4,36 +4,22 @@
 
 using namespace std;
 
-class Order {
-    private:
-        int index, units;
-    public:
-        Order() {}
-        Order(int index, int units): index(index), units(units) {}
-
-        int get_index() const {
-            return index;
-        }
-
-        bool operator < (const Order& order) const {
-            return units < order.units;
-        }
-};
-
 int main()
 {
-    int size, time, units; cin >> size;
-    vector<Order> orders(size);
+    int size, time, units;
+    cin >> size;
+
+    vector<pair<int, int> > orders;
 
     for (int i = 0; i < size; i++) {
         cin >> time >> units;
-        orders[i] = Order(i + 1, time + units);
+        orders.push_back(make_pair(time + units, i + 1));
     }
 
     sort(orders.begin(), orders.end());
 
     for (int i = 0; i < size; i++) {
-        cout << orders[i].get_index();
+        cout << orders[i].second;
 
         if (i + 1 < size) {
             cout << " ";
