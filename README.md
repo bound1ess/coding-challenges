@@ -18,3 +18,4 @@
 16. Largest Permutation (easy, greedy)
 17. Handshake (easy, combinatorics)
 18. Strange Grid (easy, combinatorics)
+19. Picking Cards (easy, combinatorics)
