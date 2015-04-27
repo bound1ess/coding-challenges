@@ -19,3 +19,4 @@
 17. Handshake (easy, combinatorics)
 18. Strange Grid (easy, combinatorics)
 19. Picking Cards (easy, combinatorics)
+20. The Time in Words (easy, warmup)
