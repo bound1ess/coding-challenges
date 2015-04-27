@@ -17,3 +17,4 @@
 15. Priyanka and Toys (easy, greedy)
 16. Largest Permutation (easy, greedy)
 17. Handshake (easy, combinatorics)
+18. Strange Grid (easy, combinatorics)
