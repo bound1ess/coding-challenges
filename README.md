@@ -28,3 +28,4 @@
 
 1. Bot saves princess (easy, bot building)
 2. Bot saves princess - 2 (easy, bot building)
+3. BotClean (easy, bot building)
