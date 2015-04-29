@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ void display_path(int size, int bot_y, int bot_x, vector<string>& grid)
     for (int i = 0; i < size; i++) {
 
         for (int j = 0; j < size; j++) {
-            int distance = (i * j) - (bot_x * bot_y);
+            int distance = abs(bot_y - i) + abs(bot_x - j);
 
             if (grid[i].at(j) == 'd' && distance < min_distance) {
                 dirt_y = i;
