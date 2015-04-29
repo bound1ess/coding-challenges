@@ -1,5 +1,7 @@
 # Coding challenges (HackerRank problems)
 
+## Algorithms
+
 1. Identify Smith Numbers (easy, warmup)
 2. Taum and B'day (easy, warmup)
 3. Chocolate Feast (easy, warmup)
@@ -21,3 +23,7 @@
 19. Picking Cards (easy, combinatorics)
 20. The Time in Words (easy, warmup)
 21. Flowers (moderate, greedy)
+
+## AI
+
+1. Bot saves princess (easy, bot building)
