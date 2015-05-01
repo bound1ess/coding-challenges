@@ -25,6 +25,7 @@
 21. Flowers (moderate, greedy)
 22. Almost Sorted (moderate, sorting)
 23. Sherlock and Pairs (moderate, sorting)
+24. The Maximum Subarray (easy, dynamic programming)
 
 ## AI
 
