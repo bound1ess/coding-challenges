@@ -24,6 +24,7 @@
 20. The Time in Words (easy, warmup)
 21. Flowers (moderate, greedy)
 22. Almost Sorted (moderate, sorting)
+23. Sherlock and Pairs (moderate, sorting)
 
 ## AI
 
