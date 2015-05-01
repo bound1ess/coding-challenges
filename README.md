@@ -23,6 +23,7 @@
 19. Picking Cards (easy, combinatorics)
 20. The Time in Words (easy, warmup)
 21. Flowers (moderate, greedy)
+22. Almost Sorted (moderate, sorting)
 
 ## AI
 
