@@ -2,7 +2,9 @@
 
 ## Season 2
 
-Soon.
+### Algorithms
+
+1. Even Tree (easy, graph theory)
 
 ## Season 1
 
