@@ -7,6 +7,7 @@
 1. Even Tree (easy, graph theory)
 2. Extra Long Factorials (moderate, warmup)
 3. A Very Big Sum (easy, warmup)
+4. Diagonal Difference (easy, warmup)
 
 ## Season 1
 
