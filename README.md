@@ -1,6 +1,12 @@
 # Coding challenges (HackerRank problems)
 
-## Algorithms
+## Season 2
+
+Soon.
+
+## Season 1
+
+### Algorithms
 
 1. Identify Smith Numbers (easy, warmup)
 2. Taum and B'day (easy, warmup)
@@ -27,7 +33,7 @@
 23. Sherlock and Pairs (moderate, sorting)
 24. The Maximum Subarray (easy, dynamic programming)
 
-## AI
+### AI
 
 1. Bot saves princess (easy, bot building)
 2. Bot saves princess - 2 (easy, bot building)
