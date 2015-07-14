@@ -9,6 +9,7 @@
 3. A Very Big Sum (easy, warmup)
 4. Diagonal Difference (easy, warmup)
 5. Plus Minus (easy, warmup)
+6. Staircase (easy, warmup)
 
 ## Season 1
 
