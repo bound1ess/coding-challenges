@@ -14,6 +14,7 @@
 8. Game of Thrones I (easy, strings)
 9. Counting Sort I (easy, sorting)
 10. Counting Sort 2 (easy, sorting)
+11. Counting Sort 3 (easy, sorting)
 
 ## Season 1
 
