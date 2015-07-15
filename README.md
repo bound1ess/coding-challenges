@@ -17,6 +17,7 @@
 11. Counting Sort 3 (easy, sorting)
 12. Sherlock and Watson (moderate, sorting)
 13. Almost Sorted (moderate, sorting)
+14. Fibonacci Modified (moderate, DP)
 
 ## Season 1
 
