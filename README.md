@@ -16,6 +16,7 @@
 10. Counting Sort 2 (easy, sorting)
 11. Counting Sort 3 (easy, sorting)
 12. Sherlock and Watson (moderate, sorting)
+13. Almost Sorted (moderate, sorting)
 
 ## Season 1
 
