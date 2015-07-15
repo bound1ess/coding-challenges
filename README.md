@@ -12,6 +12,8 @@
 6. Staircase (easy, warmup)
 7. Caesar Cipher (easy, warmup)
 8. Game of Thrones I (easy, strings)
+9. Counting Sort I (easy, sorting)
+10. Counting Sort 2 (easy, sorting)
 
 ## Season 1
 
