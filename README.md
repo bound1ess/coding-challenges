@@ -11,6 +11,7 @@
 5. Plus Minus (easy, warmup)
 6. Staircase (easy, warmup)
 7. Caesar Cipher (easy, warmup)
+8. Game of Thrones I (easy, strings)
 
 ## Season 1
 
