@@ -1,81 +1,56 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include <cstdio>
 
-using namespace std;
+const int N = 100;
+char grid[N][N];
 
-void display_path(int size, vector<string>& grid);
+inline void display_path(int n);
 
-int main()
-{
-    int size;
-    cin >> size;
-    vector<string> grid;
+int main() {
+  int n;
+  scanf("%d", &n);
 
-    for (int i = 0; i < size; i++) {
-        string row;
-        cin >> row;
+  for (int i = 0; i < n; ++i) {
+    scanf("%s", grid[i]);
+  }
 
-        grid.push_back(row);
-    }
-
-    display_path(size, grid);
-
-    return 0;
+  display_path(n);
+  return 0;
 }
 
-void display_path(int size, vector<string>& grid)
-{
-    int bot_y = -1, bot_x;
-    int pri_y = -1, pri_x;
+inline void display_path(int n) {
+  int bot_y = -1, pri_y = -1, bot_x, pri_x;
 
-    // find out where the bot (and princess) is
-    // in one go
-    for (int i = 0; i < size; i++) {
-
-        // optimize
-        if (bot_y > -1 && -1 < pri_y)
-            break;
-
-        for (int j = 0; j < size; j++) {
-            // found the bot!
-            if (grid[i].at(j) == 'm') {
-                bot_y = i;
-                bot_x = j;
-
-                break;
-            }
-
-            // and here is the princess
-            if (grid[i].at(j) == 'p') {
-                pri_y = i;
-                pri_x = j;
-
-                break;
-            }
-        }
+  for (int i = 0; i < n; ++i) {
+    if (bot_y > -1 && pri_y > -1) {
+      break;
     }
 
-    // now find the path
-    // 1) get to the same row
-    while (bot_y > pri_y) {
-        cout << "UP" << endl;
-        bot_y--;
-    }
+    for (int j = 0; j < n; ++j) {
+      if (grid[i][j] == 'm') {
+        bot_y = i, bot_x = j;
+        break;
+      }
 
-    while (pri_y > bot_y) {
-        cout << "DOWN" << endl;
-        bot_y++;
+      if (grid[i][j] == 'p') {
+        pri_y = i, pri_x = j;
+        break;
+      }
     }
+  }
 
-    // go N steps left or right
-    while (bot_x > pri_x) {
-        cout << "LEFT" << endl;
-        bot_x--;
-    }
+  while (bot_y > pri_y) {
+    printf("UP\n"), --bot_y;
+  }
 
-    while (pri_x > bot_x) {
-        cout << "RIGHT" << endl;
-        bot_x++;
-    }
+  while (pri_y > bot_y) {
+    printf("DOWN\n"), ++bot_y;
+  }
+
+  while (bot_x > pri_x) {
+    printf("LEFT\n"), --bot_x;
+  }
+
+  while (pri_x > bot_x) {
+    printf("RIGHT\n"), ++bot_x;
+  }
 }
