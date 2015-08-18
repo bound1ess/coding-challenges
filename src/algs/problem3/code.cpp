@@ -1,21 +1,14 @@
-#include <iostream>
+#include <cstdio>
 
-using namespace std;
+int main() {
+  int money, cost, extra, cases;
+  scanf("%d", &cases);
 
-int main()
-{
-    int money, cost, extra;
-    int test_cases;
+  for (int i = 0; i < cases; ++i) {
+    scanf("%d%d%d", &money, &cost, &extra);
+    money /= cost;
+    printf("%d\n", money + (money - 1) / (extra - 1));
+  }
 
-    cin >> test_cases;
-
-    while (test_cases--) {
-        cin >> money >> cost >> extra;
-
-        money /= cost;
-
-        cout << money + ((money - 1) / (extra - 1)) << endl;
-    }
-
-    return 0;
+  return 0;
 }

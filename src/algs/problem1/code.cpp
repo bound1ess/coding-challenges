@@ -1,41 +1,41 @@
-#include <iostream>
+#include <cstdio>
 
-using namespace std;
+inline int sum_of_digits(int n);
+inline int sum_of_prime_factors(int n);
 
-int sum_of_digits(int);
-int sum_of_prime_factors(int);
+int main() {
+  int n;
+  scanf("%d", &n);
 
-int main()
-{
-    int number; cin >> number;
+  if (sum_of_digits(n) == sum_of_prime_factors(n)) {
+    printf("1\n");
+  } else {
+    printf("0\n");
+  }
 
-    cout << static_cast<int>(sum_of_digits(number) == sum_of_prime_factors(number)) << endl;
-
-    return 0;
+  return 0;
 }
 
-int sum_of_digits(int number)
-{
-    int sum = 0;
+inline int sum_of_digits(int n) {
+  int sum = 0;
 
-    while (number > 0) {
-        sum += (number % 10);
-        number /= 10;
-    }
+  while (n > 0) {
+    sum += n % 10;
+    n /= 10;
+  }
 
-    return sum;
+  return sum;
 }
 
-int sum_of_prime_factors(int number)
-{
-    int sum = 0;
+inline int sum_of_prime_factors(int n) {
+  int sum = 0;
 
-    for (int divisor = 2; divisor <= number; divisor++) {
-        while ((number % divisor) == 0) {
-            sum += (divisor > 9 ? sum_of_digits(divisor) : divisor);
-            number /= divisor;
-        }
+  for (int div = 2; div <= n; ++div) {
+    while (n % div == 0) {
+      sum += div > 9 ? sum_of_digits(div) : div;
+      n /= div;
     }
+  }
 
-    return sum;
+  return sum;
 }
