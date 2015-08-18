@@ -1,70 +1,52 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include <cstdio>
 
-using namespace std;
+const int N = 100;
+char grid[N][N];
 
-void display_path(int size, int bot_y, int bot_x, vector<string>& grid);
+inline void display_path(int n, int r, int c);
 
-int main()
-{
-    int size, bot_y, bot_x;
-    cin >> size >> bot_y >> bot_x;
-    vector<string> grid;
+int main() {
+  int n, r, c;
+  scanf("%d%d%d", &n, &r, &c);
 
-    for (int i = 0; i < size; i++) {
-        string row;
-        cin >> row;
+  for (int i = 0; i < n; ++i) {
+    scanf("%s", grid[i]);
+  }
 
-        grid.push_back(row);
-    }
-
-    display_path(size, bot_y, bot_x, grid);
-
-    return 0;
+  display_path(n, r, c);
+  return 0;
 }
 
-void display_path(int size, int bot_y, int bot_x, vector<string>& grid)
-{
-    int pri_y = -1, pri_x;
+inline void display_path(int n, int r, int c) {
+  int bot_y = r, pri_y = -1, bot_x = c, pri_x;
 
-    // find out where the princess is
-    for (int i = 0; i < size; i++) {
-
-        // optimize
-        if (-1 < pri_y)
-            break;
-
-        for (int j = 0; j < size; j++) {
-            // and here is the princess
-            if (grid[i].at(j) == 'p') {
-                pri_y = i;
-                pri_x = j;
-
-                break;
-            }
-        }
+  for (int i = 0; i < n; ++i) {
+    if (pri_y > -1) {
+      break;
     }
 
-    // now find the path
-    if (bot_y > pri_y) {
-        cout << "UP" << endl;
-        return;
+    for (int j = 0; j < n; ++j) {
+      if (grid[i][j] == 'p') {
+        pri_y = i, pri_x = j;
+        break;
+      }
     }
+  }
 
-    if (pri_y > bot_y) {
-        cout << "DOWN" << endl;
-        return;
-    }
+  if (bot_y > pri_y) {
+    printf("UP\n");
+    return;
+  }
 
-    // go 1 step left or right
-    if (bot_x > pri_x) {
-        cout << "LEFT" << endl;
-        return;
-    }
+  if (pri_y > bot_y) {
+    printf("DOWN\n");
+    return;
+  }
 
-    if (pri_x > bot_x) {
-        cout << "RIGHT" << endl;
-        return;
-    }
+  if (bot_x > pri_x) {
+    printf("LEFT\n");
+    return;
+  }
+
+  printf("RIGHT\n");
 }
