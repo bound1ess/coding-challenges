@@ -1,15 +1,14 @@
-#include <iostream>
-
-using namespace std;
+#include <cstdio>
 
 int main() {
-    int cases, members; cin >> cases;
+  int t, n;
+  scanf("%d", &t);
 
-    while (cases--) {
-        cin >> members;
+  for (int i = 0; i < t; ++i) {
+    scanf("%d", &n);
 
-        cout << (members * (members - 1) / 2) << endl;
-    }
+    printf("%d\n", n * (n - 1) / 2);
+  }
 
-    return 0;
+  return 0;
 }

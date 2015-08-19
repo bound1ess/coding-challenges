@@ -1,64 +1,48 @@
-#include <iostream>
+#include <cstdio>
+#include <algorithm>
 
-using namespace std;
+const int N = 100000;
+int arr[N];
 
-int max_index_in_range(int* arr, int left, int right)
-{
-    int max = left;
+inline int max_index(int l, int r) {
+  int max = l;
 
-    for (int i = left + 1; i < right; i++) {
-        if (*(arr + max) < *(arr + i)) {
-            max = i;
-        }
+  for (int i = l + 1; i < r; ++i) {
+    if (arr[max] < arr[i]) {
+      max = i;
     }
+  }
 
-    return max;
+  return max;
 }
 
-void swap(int* arr, int a, int b)
-{
-    int tmp = *(arr + a);
+int main() {
+  int n, k;
+  scanf("%d%d", &n, &k);
 
-    arr[a] = *(arr + b);
-    arr[b] = tmp;
-}
+  for (int i = 0; i < n; ++i) {
+    scanf("%d", arr + i);
+  }
 
-int main()
-{
-    int size, max;
-    cin >> size >> max;
-    int* arr = new int[size];
-
-    for (int i = 0; i < size; i++) {
-        cin >> arr[i];
+  for (int i = 0; i < n; ++i) {
+    if (k < 1) {
+      break;
     }
 
-    for (int i = 0; i < size; i++) {
-        int j = max_index_in_range(arr, i, size);
+    int j = max_index(i, n);
 
-        if (j == i) {
-            continue;
-        }
-
-        if (max == 0) {
-            break;
-        } else {
-            swap(arr, i, j);
-            max--;
-        }
+    if (j == i) {
+      continue;
     }
 
-    for (int i = 0; i < size; i++) {
-        cout << *(arr + i);
+    std::swap(arr[i], arr[j]);
+    --k;
+  }
 
-        if (i + 1 == size) {
-            cout << endl;
-        } else {
-            cout << " ";
-        }
-    }
+  for (int i = 0; i < n - 1; ++i) {
+    printf("%d ", arr[i]);
+  }
 
-    delete [] arr;
-
-    return 0;
+  printf("%d\n", arr[n - 1]);
+  return 0;
 }

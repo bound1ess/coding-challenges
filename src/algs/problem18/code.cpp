@@ -2,18 +2,16 @@
 
 using namespace std;
 
-int main()
-{
-    long long row, column;
-    cin >> row >> column;
+int main() {
+  long long row, col;
+  cin >> row >> col;
 
-    long long initial = (row - 1) * 5;
+  long long init = 5 * (row - 1);
 
-    if (row % 2 == 0) {
-        initial -= 4;
-    }
+  if (row % 2 == 0) {
+    init -= 4;
+  }
 
-    cout << (initial + (column - 1) * 2) << endl;
-
-    return 0;
+  cout << (init + 2 * (col - 1)) << endl;
+  return 0;
 }
