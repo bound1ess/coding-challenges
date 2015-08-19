@@ -1,29 +1,27 @@
-#include <iostream>
-#include <algorithm>
 #include <functional>
+#include <algorithm>
+#include <cstdio>
 
 using namespace std;
 
-int main()
-{
-    int N, K, c[100], per = 0, result = 0;
+const int N = 100;
+int c[N];
 
-    cin >> N >> K;
+int main() {
+  int n, k, per = 0, result = 0;
+  scanf("%d%d", &n, &k);
 
-    for (int i = 0; i < N; i++)
-        cin >> c[i];
+  for (int i = 0; i < n; ++i) {
+    scanf("%d", c + i);
+  }
 
-    // sort in desc order
-    // so we can minimize money spent
-    sort(c, c + N, greater<int>());
+  sort(c, c + n, greater<int>());
 
-    for (int i = 0; i < N; i++) {
-        // (per / K) <= K for all cases
-        result += (per / K + 1) * c[i];
-        per += 1;
-    }
+  for (int i = 0; i < n; ++i) {
+    result += (per / k + 1) * c[i];
+    ++per;
+  }
 
-    cout << result << endl;
-
-    return 0;
+  printf("%d\n", result);
+  return 0;
 }

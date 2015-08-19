@@ -1,65 +1,54 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <cstdio>
 
-using namespace std;
+const int N = 100000;
+int arr[N];
 
-int max_subarray_sum(vector<int>& vec, int n)
-{
-    int max_all, max_curr;
-
-    max_all = vec[0];
-    max_curr = vec[0];
-
-    for (int i = 1; i < n; i++) {
-        max_all = max(vec[i], vec[i] + max_all);
-        max_curr = max(max_curr, max_all);
-    }
-
-    return max_curr;
+inline int max(int x, int y) {
+  return x < y ? y : x;
 }
 
-int max_subarray_nonconsec_sum(vector<int>& vec, int n)
-{
-    int pos = 0, sum = 0, negative = -10e4;
+inline int max_sum(int n) {
+  int max_all = arr[0], max_curr = arr[0];
 
-    for (int i = 0; i < n; i++) {
-        if (vec[i] >= 0) {
-            sum += vec[i];
-        } else {
-            pos++;
+  for (int i = 1; i < n; ++i) {
+    max_all = max(arr[i], arr[i] + max_all);
+    max_curr = max(max_curr, max_all);
+  }
 
-            if (vec[i] > negative)
-                negative = vec[i];
-        }
-    }
-
-    if (pos == n)
-        return negative;
-    else
-        return sum;
+  return max_curr;
 }
 
-int main()
-{
-    int t;
-    cin >> t;
+inline int max_nonconsec_sum(int n) {
+  int pos = 0, sum = 0, neg = -1e9;
 
-    while (t--) {
-        int n;
-        cin >> n;
+  for (int i = 0; i < n; ++i) {
+    if (arr[i] >= 0) {
+      sum += arr[i];
+    } else {
+      ++pos;
 
-        vector<int> vec;
+      if (arr[i] > neg) {
+        neg = arr[i];
+      }
+    }
+  }
 
-        for (int i = 0; i < n; i++) {
-            int elem;
-            cin >> elem;
+  return pos == n ? neg : sum;
+}
 
-            vec.push_back(elem);
-        }
+int main() {
+  int t, n;
+  scanf("%d", &t);
 
-        cout << max_subarray_sum(vec, n) << " " << max_subarray_nonconsec_sum(vec, n) << endl;
+  for (int i = 0; i < t; ++i) {
+    scanf("%d", &n);
+
+    for (int j = 0; j < n; ++j) {
+      scanf("%d", arr + j);
     }
 
-    return 0;
+    printf("%d %d\n", max_sum(n), max_nonconsec_sum(n));
+  }
+
+  return 0;
 }

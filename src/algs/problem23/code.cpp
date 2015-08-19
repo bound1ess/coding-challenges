@@ -1,46 +1,38 @@
-#include <iostream>
 #include <algorithm>
-#include <vector>
+#include <iostream>
 
 using namespace std;
 
-typedef long long LL;
+const int N = 100000;
+int arr[N];
 
-int main()
-{
-    int t;
-    cin >> t;
+int main() {
+  int t, n;
+  cin >> t;
 
-    while (t--) {
-        LL n;
-        cin >> n;
+  for (int i = 0; i < t; ++i) {
+    cin >> n;
 
-        vector<LL> vec;
-
-        for (LL i = 0; i < n; i++) {
-            LL num;
-            cin >> num;
-
-            vec.push_back(num);
-        }
-
-        sort(vec.begin(), vec.end());
-
-        LL sum = 0;
-
-        for (LL i = 0; i < n; /* do not increase */) {
-            LL j = i + 1;
-
-            while (j < n && vec[j] == vec[j - 1]) {
-                j++;
-            }
-
-            sum += (j - i) * (j - i - 1);
-            i = j;
-        }
-
-        cout << sum << endl;
+    for (int j = 0; j < n; ++j) {
+      cin >> arr[j];
     }
 
-    return 0;
+    sort(arr, arr + n);
+    long long sum = 0LL;
+
+    for (int j = 0; j < n;) {
+      int k = j + 1;
+
+      while (k < n && arr[k] == arr[k - 1]) {
+        ++k;
+      }
+
+      sum += static_cast<long long>(k - j) * (k - j - 1);
+      j = k;
+    }
+
+    cout << sum << endl;
+  }
+
+  return 0;
 }
