@@ -3,26 +3,23 @@
 
 using namespace std;
 
-int main()
-{
-    string str;
-    int counter, size, cases;
+int main() {
+  int cases, ans;
+  string s;
+  cin >> cases;
 
-    cin >> cases;
+  for (int i = 0; i < cases; ++i) {
+    cin >> s;
+    ans = 0;
 
-    while (cases--) {
-        cin >> str;
-        size = str.size();
-        counter = 0;
-
-        for (int i = 0; i <= (size - 2); i++) {
-            if (str.at(i) == str.at(i + 1)) {
-                counter += 1;
-            }
-        }
-
-        cout << counter << endl;
+    for (int j = 0, n = s.length(); j < n - 1; ++j) {
+      if (s[j] == s[j + 1]) {
+        ++ans;
+      }
     }
 
-    return 0;
+    cout << ans << endl;
+  }
+
+  return 0;
 }

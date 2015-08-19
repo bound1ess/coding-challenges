@@ -1,54 +1,39 @@
-#include <iostream>
-#include <algorithm>
 #include <cstdio>
+#include <algorithm>
 
-using namespace std;
+const int N = 100;
+char grid[N][N];
 
-int const SIZE = 300;
+int main() {
+  int cases;
+  scanf("%d", &cases);
 
-int main()
-{
-    int test_cases, size;
-    bool success;
-    char grid[SIZE][SIZE];
+  for (int i = 0; i < cases; ++i) {
+    int n;
+    scanf("%d", &n);
 
-    cin >> test_cases;
-
-    while (test_cases--) {
-        cin >> size;
-
-        getchar();
-
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                grid[i][j] = getchar();
-            }
-
-            getchar();
-
-            // Sort the array.
-            sort(grid[i], grid[i] + size);
-        }
-
-        // Unfortunate O(n^2) solution.
-        success = true;
-
-        for (int i = 0; i < (size - 1); i++) {
-            if ( ! success) {
-                break;
-            }
-
-            for (int j = 0; j < size; j++) {
-                // Compare two elements.
-                if (grid[i][j] > grid[i + 1][j]) {
-                    success = false;
-                    break;
-                }
-            }
-        }
-
-        cout << (success ? "YES" : "NO") << endl;
+    for (int j = 0; j < n; ++j) {
+      scanf("%s", grid[j]);
+      std::sort(grid[j], grid[j] + n);
     }
 
-    return 0;
+    bool ok = true;
+
+    for (int j = 1; j < n; ++j) {
+      for (int k = 0; k < n; ++k) {
+        if (grid[j - 1][k] > grid[j][k]) {
+          ok = false;
+          break;
+        }
+      }
+
+      if ( ! ok) {
+        break;
+      }
+    }
+
+    printf(ok ? "YES\n" : "NO\n");
+  }
+
+  return 0;
 }
