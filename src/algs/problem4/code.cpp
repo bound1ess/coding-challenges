@@ -1,38 +1,24 @@
-#include <iostream>
+#include <cstdio>
 #include <algorithm>
 
-using namespace std;
+const int N = 1234567;
+int a[N];
 
-int const SIZE = 100000;
+int main() {
+  int n;
+  scanf("%d", &n);
 
-int main()
-{
-    int size, median, array[SIZE];
+  for (int i = 0; i < n; ++i) {
+    scanf("%d", a + i);
+  }
 
-    cin >> size;
+  std::sort(a, a + n);
 
-    //cout << size << endl;
+  if (n % 2 == 1) {
+    printf("%d\n", a[n / 2]);
+  } else {
+    printf("%d\n", (a[n / 2] - a[n / 2 - 1]) / 2);
+  }
 
-    for (int i = 0; i < size; i++) {
-        cin >> array[i];
-    }
-
-    // Sort the array.
-    sort(array, array + size);
-
-    //for (int i = 0; i < size; i++) {
-    //    cout << i << " " << array[i] << endl;
-    //}
-
-    if ((size % 2) == 0) {
-        int half = size / 2;
-
-        median = (array[half] + array[half - 1]) / 2;
-    } else {
-        median = array[(size - 1) / 2];
-    }
-
-    cout << median << endl;
-
-    return 0;
+  return 0;
 }

@@ -3,52 +3,45 @@
 
 using namespace std;
 
-int main()
-{
-    string str;
-    int size, half, sum, occurs[26];
-    int offset = static_cast<int>('a'); // or simply 97
-    int test_cases; cin >> test_cases;
+const int N = 26;
+int freq[N];
 
-    while (test_cases--) {
-        cin >> str;
-        size = str.size();
+int main() {
+  string s;
+  int cases;
+  cin >> cases;
 
-        // Check for incorrect input.
-        if ((size % 2) != 0) {
-            cout << -1 << endl;
+  for (int i = 0; i < cases; ++i) {
+    cin >> s;
+    int sum = 0, n = s.length(), m = s.length() / 2u;
 
-            continue;
-        }
-
-        half = size / 2;
-        sum = 0;
-
-        for (int i = 0; i < 26; i++) {
-            occurs[i] = 0;
-        }
-
-        // Increase.
-        for (int i = 0; i < half; i++) {
-            occurs[static_cast<int>(str.at(i)) - offset] += 1;
-        }
-
-        // Decrease.
-        for (int i = 0; i < (size - half); i++) {
-            occurs[static_cast<int>(str.at(half + i)) - offset] -= 1;
-        }
-
-        // Calculate the sum.
-        for (int i = 0; i < 26; i++) {
-            if (occurs[i] >= 0) {
-                sum += occurs[i];
-            } else {
-                sum += (-1 * occurs[i]);
-            }
-        }
-
-        cout << (sum / 2) << endl;
+    if (n % 2 != 0) {
+      cout << -1 << endl;
+      continue;
     }
 
-    return 0;
+    for (int j = 0; j < N; ++j) {
+      freq[j] = 0;
+    }
+
+    for (int j = 0; j < m; ++j) {
+      ++freq[s[j] - 'a'];
+    }
+
+    for (int j = 0; j < (n - m); ++j) {
+      --freq[s[m + j] - 'a'];
+    }
+
+    for (int j = 0; j < N; ++j) {
+      if (freq[j] >= 0) {
+        sum += freq[j];
+      } else {
+        sum += -freq[j];
+      }
+    }
+
+    cout << (sum / 2) << endl;
+  }
+
+  return 0;
 }

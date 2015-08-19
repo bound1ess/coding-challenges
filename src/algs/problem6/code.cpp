@@ -3,57 +3,50 @@
 
 using namespace std;
 
-bool is_palindrome(string str);
+inline bool is_palindrome(const string &s) {
+  int i = 0, j = s.length() - 1u;
 
-int main()
-{
-    int test_cases, size, i, j; cin >> test_cases;
-    string str;
-
-    while (test_cases--) {
-        cin >> str;
-        size = str.size();
-
-        if (is_palindrome(str)) {
-            //cout << "Already a palindrome: " << str << endl;
-            cout << -1 << endl;
-            continue;
-        }
-
-        i = 0;
-        j = (size - 1);
-
-        while (i < j && str.at(i) == str.at(j)) {
-            i++; j--;
-        }
-
-        if ( ! (i < j)) {
-            //cout << i << " " << j << endl;
-            cout << -1 << endl;
-            continue;
-        }
-
-        if (is_palindrome(str.substr(0, i) + str.substr(i + 1, size - i - 1))) {
-            cout << i << endl;
-        } else {
-            cout << j << endl;
-        }
+  while (i < j) {
+    if (s[i] != s[j]) {
+      return false;
     }
 
-    return 0;
+    ++i, --j;
+  }
+
+  return true;
 }
 
-bool is_palindrome(string str)
-{
-    int i = 0, j = (str.size() - 1);
+int main() {
+  int cases;
+  string s;
+  cin >> cases;
 
-    while (i < j) {
-        if (str.at(i) != str.at(j)) {
-            return false;
-        }
+  for (int i = 0; i < cases; ++i) {
+    cin >> s;
 
-        i++; j--;
+    if (is_palindrome(s)) {
+      cout << -1 << endl;
+      continue;
     }
 
-    return true;
+    int l = 0, r = s.length() - 1u;
+
+    while (l < r && s[l] == s[r]) {
+      ++l, --r;
+    }
+
+    if (l >= r) {
+      cout << -1 << endl;
+      continue;
+    }
+
+    if (is_palindrome(s.substr(0, l) + s.substr(l + 1))) {
+      cout << l << endl;
+    } else {
+      cout << r << endl;
+    }
+  }
+
+  return 0;
 }
