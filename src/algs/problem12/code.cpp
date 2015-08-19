@@ -1,53 +1,46 @@
-#include <iostream>
-#include <vector>
+#include <cstdio>
 
-using namespace std;
+const int N = 100000;
+int a[N];
 
-bool find_solution(vector<int> numbers)
-{
-    int size = numbers.size();
-    vector<int> sum(size);
+inline bool solve(int n);
 
-    if (1 == size) {
-        return true;
-    } else if (2 == size) {
-        return false;
+int main() {
+  int t;
+  scanf("%d", &t);
+
+  for (int i = 0; i < t; ++i) {
+    int n;
+    scanf("%d", &n);
+
+    for (int j = 0; j < n; ++j) {
+      scanf("%d", a + j);
     }
 
-    for (int i = 0; i < size; i++) {
-        if (i == 0) {
-            sum[i] = numbers[i];
-        } else {
-            sum[i] = sum[i - 1] + numbers[i];
-        }
-    }
+    printf(solve(n) ? "YES\n" : "NO\n");
+  }
 
-    for (int i = 1; i < size; i++) {
-        if (sum[i - 1] == (sum[size - 1] - sum[i])) {
-            return true;
-        }
-    }
-
-    return false;
+  return 0;
 }
 
-int main()
-{
-    int cases, size;
+inline bool solve(int n) {
+  if (n == 1) {
+    return true;
+  }
 
-    cin >> cases;
+  if (n == 2) {
+    return false;
+  }
 
-    while (cases--) {
-        cin >> size;
+  for (int i = 1; i < n; ++i) {
+    a[i] += a[i - 1];
+  }
 
-        vector<int> numbers(size);
-
-        for (int i = 0; i < size; i++) {
-            cin >> numbers[i];
-        }
-
-        cout << (find_solution(numbers) ? "YES" : "NO") << endl;
+  for (int i = 1; i < n - 1; ++i) {
+    if (a[i - 1] == a[n - 1] - a[i]) {
+      return true;
     }
+  }
 
-    return 0;
+  return false;
 }

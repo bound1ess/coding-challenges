@@ -1,37 +1,28 @@
-#include <iostream>
-#include <vector>
+#include <cstdio>
 #include <algorithm>
 
-using namespace std;
+const int N = 100000;
+int a[N];
 
-int main()
-{
-    int size, max, answer = 0;
-    cin >> size >> max;
-    vector<int> prices(size), sum(size);
+int main() {
+  int n, k, ans = 0;
+  scanf("%d%d", &n, &k);
 
-    for (int i = 0; i < size; i++) {
-        cin >> prices[i];
+  for (int i = 0; i < n; ++i) {
+    scanf("%d", a + i);
+  }
+
+  std::sort(a, a + n);
+
+  for (int i = 1; i < n; ++i) {
+    a[i] += a[i - 1];
+
+    if (a[i] > k) {
+      ans = i;
+      break;
     }
+  }
 
-    sort(prices.begin(), prices.end());
-
-    for (int i = 0; i < size; i++) {
-        //cout << prices[i] << endl;
-        if (0 == i) {
-            sum[0] = prices[0];
-        } else {
-            sum[i] = sum[i - 1] + prices[i];
-        }
-
-        if (sum[i] > max) {
-            //cout << i << endl;
-            answer = i;
-            break;
-        }
-    }
-
-    cout << answer << endl;
-
-    return 0;
+  printf("%d\n", ans);
+  return 0;
 }

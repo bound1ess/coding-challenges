@@ -1,46 +1,39 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <functional>
+#include <cstdio>
 
-using namespace std;
+const int N = 1000;
+int a[N], b[N];
 
-int main()
-{
-    int cases, size, threshold;
-    bool answer;
+int main() {
+  int t;
+  scanf("%d", &t);
 
-    cin >> cases;
+  for (int i = 0; i < t; ++i) {
+    int n, k;
+    scanf("%d%d", &n, &k);
 
-    while (cases--) {
-        cin >> size >> threshold;
-
-        vector<int> a(size), b(size);
-
-        for (int i = 0; i < size; i++) {
-            cin >> a[i];
-        }
-
-        for (int i = 0; i < size; i++) {
-            cin >> b[i];
-        }
-
-        sort(a.begin(), a.end());
-        sort(b.begin(), b.end(), greater<int>());
-
-        answer = true;
-
-        for (int i = 0; i < size; i++) {
-            //cout << (a[i] + b[i]) << endl;
-
-            if (a[i] + b[i] < threshold) {
-                answer = false;
-                break;
-            }
-        }
-
-        cout << (answer ? "YES" : "NO") << endl;
+    for (int j = 0; j < n; ++j) {
+      scanf("%d", a + j);
     }
 
-    return 0;
+    for (int j = 0; j < n; ++j) {
+      scanf("%d", b + j);
+    }
+
+    std::sort(a, a + n);
+    std::sort(b, b + n, std::greater<int>());
+    bool ok = true;
+
+    for (int j = 0; j < n; ++j) {
+      if (a[j] + b[j] < k) {
+        ok = false;
+        break;
+      }
+    }
+
+    printf(ok ? "YES\n" : "NO\n");
+  }
+
+  return 0;
 }

@@ -1,31 +1,27 @@
-#include <iostream>
+#include <cstdio>
 #include <algorithm>
-#include <vector>
 
-using namespace std;
+const int N = 100000;
+int a[N];
 
-int main()
-{
-    int size; cin >> size;
-    vector<int> numbers(size);
+int main() {
+  int n;
+  scanf("%d", &n);
 
-    for (int i = 0; i < size; i++) {
-        cin >> numbers[i];
+  for (int i = 0; i < n; ++i) {
+    scanf("%d", a + i);
+  }
+
+  std::sort(a, a + n);
+  int units = 1, prev = a[0];
+
+  for (int i = 1; i < n; ++i) {
+    if (a[i] - prev > 4) {
+      prev = a[i];
+      ++units;
     }
+  }
 
-    sort(numbers.begin(), numbers.end());
-
-    int units = 1, previous;
-    previous = numbers[0];
-
-    for (int i = 0; i < size; i++) {
-        if ((numbers[i] - previous) > 4) {
-            previous = numbers[i];
-            units++;
-        }
-    }
-
-    cout << units << endl;
-
-    return 0;
+  printf("%d\n", units);
+  return 0;
 }
